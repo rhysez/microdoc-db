@@ -8,8 +8,10 @@ package org.example.microdoc;
 // TODO: Create a Seeder class (may insert many Documents for one Collection into a Database)
 // TODO: Create a Relation class (will somehow handle relations across Collections, not sure how yet)
 
+import org.example.microdoc.model.Collection;
 import org.example.microdoc.model.Document;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,10 +22,16 @@ public class Main {
         seededFields.put("field_2", 2);
         seededFields.put("field_3", 3);
 
-        Document document = new Document(seededFields);
+        Collection collection = new Collection("example_collection");
+        Document document1 = new Document(seededFields);
+        Document document2 = new Document(seededFields);
 
-        String strDoc = document.toString();
+        ArrayList<Document> allDocuments = new ArrayList<>();
+        allDocuments.add(document1);
+        allDocuments.add(document2);
 
-        System.out.println(strDoc);
+        collection.insertDocuments(new ArrayList<Document>(allDocuments));
+
+        System.out.println(collection.getDocuments());
     }
 }
