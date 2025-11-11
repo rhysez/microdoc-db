@@ -3,7 +3,7 @@ package org.example.microdoc.model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Document {
+public final class Document extends BaseResource {
     private final Map<String, Object> fields = new HashMap<>();
 
     public Document(Map<String, Object> fields) {
@@ -16,6 +16,7 @@ public class Document {
 
     public void put(String key, Object value) {
         fields.put(key, value);
+        touch();
     };
 
     public Object get(String key) {
