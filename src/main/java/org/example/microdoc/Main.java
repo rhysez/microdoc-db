@@ -1,16 +1,27 @@
 package org.example.microdoc;
 
-// TODO: Create a Document class
+// TODO: Create a Document class (Mongo-like documents that can be derived from JSON)
 // TODO: Create a Collection class (has many Documents)
 // TODO: Create a Database class (has many Collections)
-// TODO: Create a Connection class (has one Database)
+// TODO: Create a Server class (has many Databases) (this should be an HTTP server)
+// TODO: Create a Connection class (has one Server)
+
+import org.example.microdoc.model.Document;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     static void main() {
-        IO.println(String.format("Hello and welcome!"));
+        Map<String, Object> seededFields = new HashMap<>();
+        seededFields.put("field_1", 1);
+        seededFields.put("field_2", 2);
+        seededFields.put("field_3", 3);
 
-        for (int i = 1; i <= 5; i++) {
-            IO.println("i = " + i);
-        }
+        Document document = new Document(seededFields);
+
+        String strDoc = document.toString();
+
+        System.out.println(strDoc);
     }
 }
