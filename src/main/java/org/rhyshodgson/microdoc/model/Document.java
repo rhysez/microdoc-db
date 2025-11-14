@@ -1,4 +1,4 @@
-package org.example.microdoc.model;
+package org.rhyshodgson.microdoc.model;
 
 import java.util.HashMap;
 import java.util.Map;

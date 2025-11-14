@@ -1,11 +1,13 @@
-package org.example.microdoc.model;
+package org.rhyshodgson.microdoc.model;
 
 import java.util.ArrayList;
 
 public final class Collection extends BaseResource {
     private ArrayList<Document> documents = new ArrayList<Document>();
 
-    public String name;
+    public String name = "Collection";
+
+    public Collection() {}
 
     public Collection(String name) {
         this.name = name;

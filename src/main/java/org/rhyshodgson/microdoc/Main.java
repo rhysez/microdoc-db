@@ -1,15 +1,13 @@
-package org.example.microdoc;
+package org.rhyshodgson.microdoc;
 
-// TODO: Create a Document class (Mongo-like documents that can be derived from JSON)
-// TODO: Create a Collection class (has many Documents)
 // TODO: Create a Database class (has many Collections)
-// TODO: Create a Server class (has many Databases) (this should be an HTTP server)
-// TODO: Create a Connection class (has one Server)
+// TODO: Figure out a way of storing the data. Might need to get creative.
 // TODO: Create a Seeder class (may insert many Documents for one Collection into a Database)
 // TODO: Create a Relation class (will somehow handle relations across Collections, not sure how yet)
+// TODO: Figure out how to have a running "connection" to another program. Would need to expose a port like MySQL does.
 
-import org.example.microdoc.model.Collection;
-import org.example.microdoc.model.Document;
+import org.rhyshodgson.microdoc.model.Collection;
+import org.rhyshodgson.microdoc.model.Document;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,12 +24,15 @@ public class Main {
         Document document1 = new Document(seededFields);
         Document document2 = new Document(seededFields);
 
-        ArrayList<Document> allDocuments = new ArrayList<>();
-        allDocuments.add(document1);
-        allDocuments.add(document2);
+        ArrayList<Document> mergedDocuments = new ArrayList<>();
+        mergedDocuments.add(document1);
+        mergedDocuments.add(document2);
 
-        collection.insertDocuments(new ArrayList<Document>(allDocuments));
+        collection.insertDocuments(new ArrayList<Document>(mergedDocuments));
 
-        System.out.println(collection.getDocuments());
+        ArrayList<Document> collectionDocuments = collection.getDocuments();
+
+        System.out.println(collectionDocuments);
+        System.out.println(collectionDocuments.getFirst().getId());
     }
 }

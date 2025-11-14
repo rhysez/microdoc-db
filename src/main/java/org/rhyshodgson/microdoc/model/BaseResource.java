@@ -1,4 +1,4 @@
-package org.example.microdoc.model;
+package org.rhyshodgson.microdoc.model;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -12,6 +12,10 @@ public abstract class BaseResource {
         this.id = UUID.randomUUID();
         this.createdAt = Instant.now();
         this.updatedAt = createdAt;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public Instant getCreatedAt() {
