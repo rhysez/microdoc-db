@@ -1,6 +1,7 @@
 package org.rhyshodgson.microdoc.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public final class Collection extends BaseResource {
     private ArrayList<Document> documents = new ArrayList<Document>();
@@ -30,5 +31,15 @@ public final class Collection extends BaseResource {
     public void insertDocuments(ArrayList<Document> documents) {
         this.documents.addAll(documents);
         touch();
+    }
+
+    public Document getDocumentById(String id) {
+        for (Document document : documents) {
+            if (document.getId().equals(id)) {
+                return document;
+            }
+        }
+
+        return null;
     }
 }

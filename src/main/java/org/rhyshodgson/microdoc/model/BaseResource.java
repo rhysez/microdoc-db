@@ -14,8 +14,8 @@ public abstract class BaseResource {
         this.updatedAt = createdAt;
     }
 
-    public UUID getId() {
-        return id;
+    public String getId() {
+        return id.toString();
     }
 
     public Instant getCreatedAt() {
